@@ -6,7 +6,7 @@ const bookingSchema=new mongoose.Schema({
     },
     roomId:{
          type: String, 
-         ref: 'Room'
+         
     },
     userId:{
         type:String,

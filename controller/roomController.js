@@ -2,8 +2,8 @@ const Room=require("../model/roomModel");
 const { v4: uuidv4 } = require('uuid');
 const createRooms=async(req,res)=>{
     try{
-        const {name,location,capacity}=req.body;
-        const newRoom=new Room({id:uuidv4(),name,location,capacity});
+        const {name,location,capacity,image}=req.body;
+        const newRoom=new Room({id:uuidv4(),name,location,capacity,image});
         await newRoom.save();
         res.status(201).json(newRoom);
     }
@@ -24,8 +24,8 @@ const getAllRooms=async(req,res)=>{
 const updateRoom=async(req,res)=>{
     try{
         const {id}=req.params;
-        const {name,location,capacity}=req.body;
-        const updatedRoom=await Room.findOneAndUpdate({id},{name,location,capacity},{new:true});
+        const {name,location,capacity,image}=req.body;
+        const updatedRoom=await Room.findOneAndUpdate({id},{name,location,capacity,image},{new:true});
         if(!updatedRoom){
             res.status(404).send("Room not found");
         }
@@ -39,7 +39,7 @@ const updateRoom=async(req,res)=>{
 const deleteRoom=async(req,res)=>{
     try{
         const {id}=req.params;
-        const{name,location,capacity}=req.body;
+        const{name,location,capacity,image}=req.body;
         const deletedRoom=await Room.findOneAndDelete({id});
         if(!deletedRoom){
             res.status(404).send("Room not found");

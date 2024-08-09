@@ -5,6 +5,9 @@ const roomSchema=new mongoose.Schema({
         require:[true,"Room id is mandatory"],
         unique: true
     },
+    image:{
+        type:String
+    },
     name:{
         type:String,
         require:true

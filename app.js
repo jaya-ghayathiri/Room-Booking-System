@@ -3,6 +3,7 @@ const express=require('express');
 const app=express();
 const cron=require("node-cron")
 const bodyParser = require('body-parser');
+const cors=require('cors')
 const port=3000;
 const {expireOldBookings}=require("./controller/bookingContoller")
 const Roomroutes=require("./routes/roomRoute");
@@ -15,6 +16,7 @@ mongoose.connect("mongodb+srv://jayaghayathiri:jayagayu@cluster0.jhjnpn6.mongodb
 })
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use('/',Roomroutes);
 app.use('/',Bookingroutes);
 app.use('/',Userroutes)

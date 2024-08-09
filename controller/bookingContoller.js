@@ -3,22 +3,34 @@ const Booking = require("../model/bookingModel");
 const Room = require("../model/roomModel");
 const { v4: uuidv4 } = require('uuid');
 
-const createBooking = async (req, res) => {
-    try {
-        const { roomId, userId, date, startTime, endTime } = req.body;
 
+const createBooking = async (req, res) => {
+    console.log("Request body:", req.body);
+    console.log("User from auth middleware:", req.user);
+    try {
+        // Assuming userId is attached to req.user by authentication middleware
+        const userId = req.user.id;
+        const { roomId, date, startTime, endTime } = req.body;
+
+        if (!roomId || !date || !startTime || !endTime) {
+            return res.status(400).json({ error: "All fields are mandatory" });
+        }
+
+        // Fetch room based on roomId
         const room = await Room.findOne({ id: roomId });
         if (!room) {
             return res.status(404).json({ error: "Room not found" });
         }
+
+        // Check for overlapping bookings
         const overlappingBooking = await Booking.findOne({
             roomId,
             date,
             isActive: true,
             $or: [
-                { startTime: { $lt: endTime }, endTime: { $gt: startTime } },  
-                { startTime: { $gte: startTime, $lt: endTime } },  
-                { endTime: { $gt: startTime, $lte: endTime } }  
+                { startTime: { $lt: endTime }, endTime: { $gt: startTime } },
+                { startTime: { $gte: startTime, $lt: endTime } },
+                { endTime: { $gt: startTime, $lte: endTime } }
             ]
         });
 
@@ -26,13 +38,22 @@ const createBooking = async (req, res) => {
             return res.status(409).json({ error: "Room is already booked for the selected time" });
         }
 
-        const newBooking = new Booking({ id: uuidv4(), roomId, userId, date, startTime, endTime });
+        // Create a new booking
+        const newBooking = new Booking({ 
+            roomId, 
+            userId, 
+            date, 
+            startTime, 
+            endTime 
+        });
+
         await newBooking.save();
         res.status(201).json(newBooking);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 };
+
 const updateBooking = async (req, res) => {
     try {
         const { id } = req.params;
