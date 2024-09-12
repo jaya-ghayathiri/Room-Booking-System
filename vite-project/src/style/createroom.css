@@ -1,0 +1,95 @@
+.room-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    background-image: url('https://images.pexels.com/photos/1669799/pexels-photo-1669799.jpeg?cs=srgb&dl=pexels-fotoaibe-1669799.jpg&fm=jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .room-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .submit-button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .delete-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .delete-button:hover {
+    background-color: #c0392b;
+  }
+  
+  @media (max-width: 600px) {
+    .room-form {
+      padding: 20px;
+    }
+  }
+  

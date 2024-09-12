@@ -1,0 +1,108 @@
+/* General styles for the auth container */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('https://images.pexels.com/photos/1669799/pexels-photo-1669799.jpeg?cs=srgb&dl=pexels-fotoaibe-1669799.jpg&fm=jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    
+}
+
+/* Styling for the form */
+.auth-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header styling */
+.auth-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form group styling */
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button styling */
+.auth-button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.auth-button:hover {
+    background-color: #0056b3;
+}
+
+/* Toggle link styling */
+.toggle-link {
+    color: #007BFF;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.toggle-link:hover {
+    text-decoration: underline;
+}
+
+/* Toastify styling */
+.Toastify__toast-container {
+    font-family: Arial, sans-serif;
+}
+
+.Toastify__toast {
+    border-radius: 8px;
+}
+
+.Toastify__toast--success {
+    background-color: #28a745;
+    color: white;
+}
+
+.Toastify__toast--error {
+    background-color: #dc3545;
+    color: white;
+}

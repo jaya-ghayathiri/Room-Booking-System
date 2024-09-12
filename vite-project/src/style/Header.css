@@ -1,0 +1,71 @@
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.App {
+    text-align: center;
+    padding-top: 60px; /* Adjust padding to account for the sticky header */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left a,
+.navbar-right a, 
+.navbar-right span {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-left a:hover,
+.navbar-right a:hover, 
+.navbar-right span:hover {
+    color: #1e90ff;
+}
+
+.navbar-right span {
+    cursor: pointer;
+}
+
+.navbar-right a:not(:last-child) {
+    margin-right: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .navbar-left, .navbar-right {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .navbar-right a, .navbar-right span {
+        margin: 5px 0;
+    }
+}
+
